@@ -23,7 +23,7 @@ let _headers = {
 
 module.exports = new BaseKonnector(start)
 
-async function start(fields, cozyParameters) {
+async function start(fields) {
   log('info', 'Authenticating ...')
   const token = await authenticate(fields.email, fields.password)
   log('info', 'Successfully logged in')
