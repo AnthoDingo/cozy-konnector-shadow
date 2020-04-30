@@ -14,7 +14,7 @@ const requestJSON = requestFactory({
 const urlService = require('./urlService')
 
 let _headers = {
-  Accept: 'application/json, text/plain, */*',
+  'Accept': 'application/json, text/plain, */*',
   'Accept-Encoding': 'identity',
   'Accept-Language': 'en-US,en',
   'Cache-Control': 'no-cache',
