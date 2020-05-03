@@ -46,7 +46,7 @@ async function authenticate(_email, _password) {
     method: 'POST',
     url: urlService.getSSOLogin(),
     headers: _headers,
-    body: {
+    form: {
       email: _email,
       password: _password
     }
