@@ -4,7 +4,7 @@ const webpack = require('webpack')
 const fs = require('fs')
 const SvgoInstance = require('svgo')
 
-const entry = require('./package.json.old').main
+const entry = require('./package.json').main
 
 const readManifest = () =>
   JSON.parse(fs.readFileSync(path.join(__dirname, './manifest.konnector')))
