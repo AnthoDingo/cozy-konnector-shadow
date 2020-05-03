@@ -33,7 +33,8 @@ async function start(fields) {
 
   log('info', 'Saving data to Cozy')
   await this.saveBills(documents, fields, {
-    identifiers: ['vendor']
+    identifiers: ['Shadow'],
+    contentType: 'application/pdf'
   })
   // Delete Token
   log('info', 'Login out...')
@@ -104,11 +105,9 @@ async function listInvoices(token) {
     date: new Date(file.invoice_date),
     amount: normalizePrice(file.paid_amount_cents),
     currency: file.currency,
-    filename: `${file.invoice_date}_${file.supplier_name}_${normalizePrice(
-      file.paid_amount_cents
-    )}${file.currency}.pdf`,
+    filename: `${file.invoice_date}_${file.supplier_name}_${normalizePrice(file.paid_amount_cents)}${file.currency}.pdf`,
     fileurl: file.pdf_file_url,
-    vendor: file.supplier_name,
+    vendor: 'Shadow',
     recurrence: 'monthly',
     metadata: {
       created_at: file.invoice_date,
