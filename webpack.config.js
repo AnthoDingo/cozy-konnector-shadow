@@ -39,7 +39,7 @@ module.exports = {
     new CopyPlugin({
       patterns: [
         { from: 'manifest.konnector' },
-        { from: 'package.json.old' },
+        { from: 'package.json' },
         { from: 'README.md' },
         { from: 'assets', transform: optimizeSVGIcon },
         { from: '.travis.yml' },
