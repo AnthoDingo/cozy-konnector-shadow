@@ -25,7 +25,7 @@ module.exports = new BaseKonnector(start)
 
 async function start(fields) {
   log('info', 'Authenticating ...')
-  const token = await authenticate(fields.email, fields.password)
+  const token = await authenticate(fields.login, fields.password)
   log('info', 'Successfully logged in')
 
   log('info', 'Parsing list of documents')
@@ -42,13 +42,13 @@ async function start(fields) {
   log('info', 'Successfully logged out')
 }
 
-async function authenticate(_email, _password) {
+async function authenticate(_login, _password) {
   const $ = await requestJSON({
     method: 'POST',
     url: urlService.getSSOLogin(),
     headers: _headers,
     form: {
-      email: _email,
+      email: _login,
       password: _password
     }
   })

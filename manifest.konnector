@@ -13,7 +13,7 @@
     "online_services"
   ],
   "fields": {
-    "email": {
+    "login": {
       "type": "email"
     },
     "password": {
@@ -92,6 +92,6 @@
       }
     }
   },
-  "banksTransactionRegExp": "\\BLADEGROUP\\b",
+  "banksTransactionRegExp": "\\bBLADEGROUP\\b",
   "manifest_version": "2"
 }
