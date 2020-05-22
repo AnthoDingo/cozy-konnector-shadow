@@ -14,7 +14,7 @@ const requestJSON = requestFactory({
 const urlService = require('./urlService')
 
 let _headers = {
-  'Accept': 'application/json, text/plain, */*',
+  Accept: 'application/json, text/plain, */*',
   'Accept-Encoding': 'identity',
   'Accept-Language': 'en-US,en',
   'Cache-Control': 'no-cache',
@@ -105,7 +105,9 @@ async function listInvoices(token) {
     date: new Date(file.invoice_date),
     amount: normalizePrice(file.paid_amount_cents),
     currency: file.currency,
-    filename: `${file.invoice_date}_${file.supplier_name}_${normalizePrice(file.paid_amount_cents)}${file.currency}.pdf`,
+    filename: `${file.invoice_date}_${file.supplier_name}_${normalizePrice(
+      file.paid_amount_cents
+    )}${file.currency}.pdf`,
     fileurl: file.pdf_file_url,
     vendor: 'Shadow',
     recurrence: 'monthly',
