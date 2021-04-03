@@ -22,7 +22,6 @@ class UrlService {
   }
 
   getCustomerInvoices(token, lte = null) {
-    //const gte = encodeURIComponent('2011-10-05T14:48:00.000Z')
     if (lte === null) {
       lte = encodeURIComponent(moment().format('YYYY-MM-DD'))
     }

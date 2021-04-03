@@ -112,6 +112,7 @@ async function listInvoices(token) {
     vendor: 'Shadow',
     recurrence: 'monthly',
     metadata: {
+      carbonCopy: true,
       created_at: file.invoice_date,
       importDate: new Date(),
       version: 1
