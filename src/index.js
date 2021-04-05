@@ -157,5 +157,7 @@ function normalizePrice(price) {
 }
 
 function getFilename(file) {
-  return `${file.invoice_date}_${file.supplier_name}_${normalizePrice(file.paid_amount_cents)}${file.currency}.pdf`
+  return `${file.invoice_date}_${file.supplier_name}_${normalizePrice(
+    file.paid_amount_cents
+  )}${file.currency}.pdf`
 }
