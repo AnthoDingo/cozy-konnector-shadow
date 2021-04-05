@@ -29,7 +29,7 @@ async function start(fields) {
   log('info', 'Successfully logged in')
 
   log('info', 'Parsing list of documents')
-  const documents = await listInvoices(token)
+  const documents = await listInvoices(token, fields.login)
 
   log('info', 'Saving data to Cozy')
   await this.saveBills(documents, fields, {
@@ -79,7 +79,7 @@ async function logout(token) {
   return true
 }
 
-async function listInvoices(token) {
+async function listInvoices(token, compteID) {
   // Add header authorization
   _headers.Authorization = token
 
@@ -115,6 +115,7 @@ async function listInvoices(token) {
         classification: 'invoicing',
         created_at: file.invoice_date,
         contentAuthor: 'shadow',
+        contractReference: compteID,
         datetime: new Date(file.invoice_date),
         datetimeLabel: 'issueDate',
         importDate: new Date(),

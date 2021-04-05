@@ -1,9 +1,9 @@
 {
-  "version": "1.0.3",
+  "version": "1.0.4",
   "name": "Shadow",
   "type": "konnector",
   "language": "node",
-  "icon": "icon.png",
+  "icon": "shadow.png",
   "slug": "shadow",
   "source": "git@github.com:AnthoDingo/cozy-konnector-shadow.git",
   "editor": "anthodingo",
@@ -46,7 +46,7 @@
     },
     "accounts": {
       "type": "io.cozy.accounts",
-      "verbs": ["GET"]
+      "verbs": ["GET", "PUT"]
     },
     "carboncopy": {
       "type": "io.cozy.certified.carbon_copy"
