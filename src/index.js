@@ -105,11 +105,6 @@ async function listInvoices(token) {
     date: new Date(file.invoice_date),
     amount: normalizePrice(file.paid_amount_cents),
     currency: '€',
-    /*
-    filename: `${file.invoice_date}_${file.supplier_name}_${normalizePrice(
-      file.paid_amount_cents
-    )}${file.currency}.pdf`,
-     */
     filename: getFilename(file.invoice_date, file.paid_amount_cents),
     fileurl: file.pdf_file_url,
     vendor: 'Shadow',
