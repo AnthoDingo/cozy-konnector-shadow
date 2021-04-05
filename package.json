@@ -1,13 +1,13 @@
 {
   "name": "cozy-konnector-shadow",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "",
   "repository": {
     "type": "git",
     "url": "git@github.com:AnthoDingo/cozy-konnector-shadow.git"
   },
   "keywords": [],
-  "author": "Cozy Cloud",
+  "author": "anthodingo",
   "license": "AGPL-3.0",
   "main": "./src/index.js",
   "eslintConfig": {
