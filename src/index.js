@@ -29,12 +29,15 @@ async function start(fields) {
   log('info', 'Successfully logged in')
 
   log('info', 'Parsing list of documents')
-  const documents = await listInvoices(token, fields.login)
+  const documents = await listInvoices(token)
 
   log('info', 'Saving data to Cozy')
   await this.saveBills(documents, fields, {
     identifiers: ['Shadow'],
-    contentType: 'application/pdf'
+    contentType: 'application/pdf',
+    fileIdAttributes: ['vendorRef'],
+    keys: ['vendorRef'],
+    linkBankOperations: false
   })
   // Delete Token
   log('info', 'Login out...')
@@ -79,7 +82,7 @@ async function logout(token) {
   return true
 }
 
-async function listInvoices(token, compteID) {
+async function listInvoices(token) {
   // Add header authorization
   _headers.Authorization = token
 
@@ -105,9 +108,10 @@ async function listInvoices(token, compteID) {
     date: new Date(file.invoice_date),
     amount: normalizePrice(file.paid_amount_cents),
     currency: '€',
-    filename: getFilename(file.invoice_date, file.paid_amount_cents),
+    filename: getFilename(file),
     fileurl: file.pdf_file_url,
     vendor: 'Shadow',
+    vendorRef: file.invoice_number,
     recurrence: 'monthly',
     fileAttributes: {
       metadata: {
@@ -115,7 +119,7 @@ async function listInvoices(token, compteID) {
         classification: 'invoicing',
         created_at: file.invoice_date,
         contentAuthor: 'shadow',
-        contractReference: compteID,
+        contractReference: file.customer_email,
         datetime: new Date(file.invoice_date),
         datetimeLabel: 'issueDate',
         importDate: new Date(),
@@ -152,6 +156,6 @@ function normalizePrice(price) {
   return new Number(`${amount}.${cents}`)
 }
 
-function getFilename(date, amount) {
-  return `${date}_Blade SAS_${normalizePrice(amount)}€.pdf`
+function getFilename(file) {
+  return `${file.invoice_date}_${file.supplier_name}_${normalizePrice(file.paid_amount_cents)}${file.currency}.pdf`
 }
