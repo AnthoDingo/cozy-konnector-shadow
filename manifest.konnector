@@ -1,9 +1,9 @@
 {
-  "version": "1.0.4",
+  "version": "1.0.5",
   "name": "Shadow",
   "type": "konnector",
   "language": "node",
-  "icon": "shadow.png",
+  "icon": "shadow.svg",
   "slug": "shadow",
   "source": "git@github.com:AnthoDingo/cozy-konnector-shadow.git",
   "editor": "anthodingo",
