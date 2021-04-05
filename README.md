@@ -1,5 +1,7 @@
-[Cozy][cozy] <YOUR SUPER NEW KONNECTOR NAME>
+[Cozy][cozy] Shadow
 =======================================
+
+[![Build Status](https://travis-ci.com/AnthoDingo/cozy-konnector-shadow.svg?branch=main)](https://travis-ci.com/AnthoDingo/cozy-konnector-shadow)
 
 What's Cozy?
 ------------
@@ -11,8 +13,7 @@ What's Cozy?
 What is this konnector about ?
 ------------------------------
 
-This konnector retrieves your <SOME DATA> and <SOME OTHER DATA> from <SERVICE>
-<YOUR DESCRIPTION HERE>
+This konnector retrieves your invoices from Shadow.tech
 
 ### Open a Pull-Request
 
@@ -45,7 +46,7 @@ This connector uses [cozy-konnector-libs](https://github.com/cozy/cozy-konnector
 
 ### Maintainer
 
-The lead maintainers for this konnector is <YOUR NAME>
+The lead maintainers for this konnector is [Anthony Bosco][anthodingo]
 
 
 ### Get in touch
@@ -62,7 +63,11 @@ You can reach the Cozy Community by:
 License
 -------
 
-<YOUR KONNECTOR NAME> is developed by <your name> and distributed under the [AGPL v3 license][agpl-3.0].
+cozy-konnector-shadow is developed by [Anthony Bosco][anthodingo] and distributed under the [AGPL v3 license][agpl-3.0].
+
+cozy-konnector-shadow is not affiliated with Blade SAS and not developped by Blade SAS.
+
+Shadow, Shadow.tech are properties of Blade SAS.
 
 [cozy]: https://cozy.io "Cozy Cloud"
 [agpl-3.0]: https://www.gnu.org/licenses/agpl-3.0.html
@@ -76,3 +81,4 @@ License
 [yarn]: https://yarnpkg.com
 [travis]: https://travis-ci.org
 [contribute]: CONTRIBUTING.md
+[anthodingo]: https://github.com/AnthoDingo
