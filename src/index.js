@@ -104,25 +104,30 @@ async function listInvoices(token) {
   const invoices = files.map(file => ({
     date: new Date(file.invoice_date),
     amount: normalizePrice(file.paid_amount_cents),
-    currency: file.currency,
+    currency: '€',
+    /*
     filename: `${file.invoice_date}_${file.supplier_name}_${normalizePrice(
       file.paid_amount_cents
     )}${file.currency}.pdf`,
+     */
+    filename: getFilename(file.invoice_date, file.paid_amount_cents),
     fileurl: file.pdf_file_url,
     vendor: 'Shadow',
     recurrence: 'monthly',
-    metadata: {
-      carbonCopy: true,
-      classification: 'invoicing',
-      created_at: file.invoice_date,
-      contentAuthor: 'shadow',
-      datetime: new Date(file.invoice_date),
-      datetimeLabel: 'issueDate',
-      importDate: new Date(),
-      isSubscription: true,
-      issueDate: new Date(file.invoice_date),
-      subClassification: 'invoice',
-      version: 1
+    fileAttributes: {
+      metadata: {
+        carbonCopy: true,
+        classification: 'invoicing',
+        created_at: file.invoice_date,
+        contentAuthor: 'shadow',
+        datetime: new Date(file.invoice_date),
+        datetimeLabel: 'issueDate',
+        importDate: new Date(),
+        isSubscription: true,
+        issueDate: new Date(file.invoice_date),
+        subClassification: 'invoice',
+        version: 1
+      }
     }
   }))
 
@@ -149,4 +154,8 @@ function normalizePrice(price) {
   let amount = price.toString().substr(0, 2)
   let cents = price.toString().substr(2)
   return new Number(`${amount}.${cents}`)
+}
+
+function getFilename(date, amount) {
+  return `${date}_Blade SAS_${normalizePrice(amount)}€.pdf`
 }
