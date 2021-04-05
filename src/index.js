@@ -113,8 +113,15 @@ async function listInvoices(token) {
     recurrence: 'monthly',
     metadata: {
       carbonCopy: true,
+      classification: 'invoicing',
       created_at: file.invoice_date,
+      contentAuthor: 'shadow',
+      datetime: new Date(file.invoice_date),
+      datetimeLabel: 'issueDate',
       importDate: new Date(),
+      isSubscription: true,
+      issueDate: new Date(file.invoice_date),
+      subClassification: 'invoice',
       version: 1
     }
   }))

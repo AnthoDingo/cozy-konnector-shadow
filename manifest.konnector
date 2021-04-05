@@ -36,27 +36,20 @@
   "screenshots": [],
   "permissions": {
     "bank operations": {
-    "description": "Required to save the bank operations",
       "type": "io.cozy.bank.operations"
     },
     "bills": {
-      "description": "Required to save the bills data",
       "type": "io.cozy.bills"
     },
     "files": {
-      "description": "Required to save files",
       "type": "io.cozy.files"
     },
     "accounts": {
-      "description": "Required to get the account's data",
       "type": "io.cozy.accounts",
       "verbs": ["GET"]
     },
     "carboncopy": {
       "type": "io.cozy.certified.carbon_copy"
-    },
-    "electronicsafe": {
-      "type": "io.cozy.certified.electronic_safe"
     }
   },
   "developer": {
@@ -80,6 +73,9 @@
         },
         "accounts": {
           "description": "Utilisé pour obtenir les données du compte"
+        },
+        "carboncopy": {
+          "description": "Utilisé pour certifier que vos fichiers sont copie conforme avec les documents d'origine"
         }
       }
     },
@@ -98,10 +94,19 @@
         },
         "accounts": {
           "description": "Required to get the account's data"
+        },
+        "carboncopy": {
+          "description": "Required for carbon copy documents"
         }
       }
     }
   },
+  "features": [
+      "LOGIN_OK",
+      "METADATA_DEDUP",
+      "DOC_QUALIFICATION",
+      "CARBON_COPY"
+    ],
   "banksTransactionRegExp": "\\bBLADEGROUP\\b",
   "manifest_version": "2"
 }
